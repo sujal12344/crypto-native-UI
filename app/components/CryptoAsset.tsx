@@ -26,51 +26,75 @@ const CryptoAsset: React.FC<CryptoAssetProps> = ({
   const renderPlaceholderIcon = () => {
     let bgColor = "bg-gray-700";
     let textColor = "text-white";
+    let letter = symbol.charAt(0);
     
-    if (symbol === "HOHOHO") bgColor = "bg-red-500";
-    else if (symbol === "SOL") bgColor = "bg-blue-900";
-    else if (symbol === "2025X") bgColor = "bg-yellow-800";
-    else if (symbol === "XRP") bgColor = "bg-blue-500";
-    else if (symbol === "CHILLGR") bgColor = "bg-green-700";
-    else if (symbol === "HUZZMAS") bgColor = "bg-red-600";
+    if (symbol === "HOHOHO") {
+      bgColor = "bg-red-500";
+      letter = "H";
+    }
+    else if (symbol === "SOL") {
+      bgColor = "bg-blue-900";
+      letter = "S";
+    }
+    else if (symbol === "2025X") {
+      bgColor = "bg-yellow-800";
+      letter = "2";
+    }
+    else if (symbol === "XRP") {
+      bgColor = "bg-blue-500";
+      letter = "X";
+    }
+    else if (symbol === "CHILLGR") {
+      bgColor = "bg-green-700";
+      letter = "C";
+    }
+    else if (symbol === "HUZZMAS") {
+      bgColor = "bg-red-600";
+      letter = "H";
+    }
     
     return (
-      <View className={`w-10 h-10 rounded-full ${bgColor} items-center justify-center mr-3`}>
-        <Text className={`${textColor} font-bold text-xs`}>{symbol.charAt(0)}</Text>
+      <View className={`w-11 h-11 rounded-full ${bgColor} items-center justify-center mr-3 relative`}>
+        {/* Document icon for some assets */}
+        {['HOHOHO', '2025X', 'XRP', 'CHILLGR', 'HUZZMAS'].includes(symbol) && (
+          <View className="absolute -right-2 bottom-0">
+            <Ionicons name="document-text-outline" size={20} color="white" />
+          </View>
+        )}
+        <Text className={`${textColor} font-bold text-base`}>{letter}</Text>
       </View>
     );
   };
   
   return (
-    <TouchableOpacity className="flex-row items-center justify-between px-4 py-3 border-b border-gray-800">
-      <View className="flex-row items-center">
-        {/* <Image 
-          source={iconUrl} 
-          className="w-10 h-10 rounded-full mr-3" 
-        /> */}
-        {renderPlaceholderIcon()}
-        <View>
-          <Text className="text-white font-medium">{name}</Text>
-          <Text className="text-gray-400 text-xs">
-            {amount.toLocaleString(undefined, { maximumFractionDigits: 6 })} {symbol}
-          </Text>
+    <View className='bg-gray-100/5 rounded-xl mx-4 my-0.5'>
+      <TouchableOpacity className="flex-row items-center justify-between px-4 py-3 border-gray-800">
+        <View className="flex-row items-center">
+          {/* <Image 
+            source={iconUrl} 
+            className="w-10 h-10 rounded-full mr-3" 
+          /> */}
+          {renderPlaceholderIcon()}
+          <View>
+            <Text className="text-white font-medium text-base">{name}</Text>
+            <Text className="text-gray-400 text-xs">
+              {amount.toLocaleString(undefined, { maximumFractionDigits: 6 })} {symbol}
+            </Text>
+          </View>
         </View>
-      </View>
-      <View className="items-end">
-        <Text className="text-white font-medium">
-          ${value.toFixed(2)}
-        </Text>
-        <Text className={isPositive ? "text-green-500 text-xs" : "text-red-500 text-xs"}>
-          {formattedChange}
-        </Text>
-      </View>
-      {/* Document icon for some assets */}
-      {['HOHOHO', '2025X', 'XRP', 'CHILLGR', 'HUZZMAS'].includes(symbol) && (
-        <View className="absolute right-16">
-          <Ionicons name="document-text-outline" size={14} color="white" />
+        
+        <View className="flex-row items-center">
+          <View className="items-end">
+            <Text className="text-white font-medium text-base">
+              ${value.toFixed(2)}
+            </Text>
+            <Text className={isPositive ? "text-green-500 text-xs" : "text-red-500 text-xs"}>
+              {formattedChange}
+            </Text>
+          </View>
         </View>
-      )}
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </View>
   );
 };
 

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { View, ScrollView, SafeAreaView, StatusBar } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import AccountHeader from '../components/AccountHeader';
 import BalanceDisplay from '../components/BalanceDisplay';
 import ActionButtons from '../components/ActionButtons';
 import CryptoAsset from '../components/CryptoAsset';
 import BottomTabBar from '../components/BottomTabBar';
 
-// Mock data for the crypto assets
+// Mock data for the crypto assets - exactly matching the first image
 const cryptoAssets = [
   {
     name: "Santa's Dick",
@@ -14,7 +15,7 @@ const cryptoAssets = [
     amount: 10000,
     value: 1614.15,
     change: 1187.86,
-    // iconUrl: require('../assets/crypto-icons/santa.png'), // You'll need to add these images
+    // iconUrl: require('../assets/crypto-icons/santa.png'),
   },
   {
     name: "Solana",
@@ -61,41 +62,49 @@ const cryptoAssets = [
 const WalletScreen: React.FC = () => {
   const [activeTab, setActiveTab] = useState('home');
 
-  // Calculate total balance and profit
-  const totalBalance = cryptoAssets.reduce((sum, asset) => sum + asset.value, 0);
-  const totalProfit = cryptoAssets.reduce((sum, asset) => sum + asset.change, 0);
-  const percentageChange = (totalProfit / (totalBalance - totalProfit)) * 100;
+  // Hardcoded values to exactly match the first image
+  const totalBalance = 1694.00;
+  const totalProfit = 1172.50;
+  const percentageChange = 224.83;
 
   return (
-    <SafeAreaView className="flex-1 bg-black">
-      <StatusBar barStyle="light-content" />
-      
-      <AccountHeader accountName="Account 1" accountNumber={1} />
-      
-      <BalanceDisplay 
-        balance={totalBalance} 
-        profit={totalProfit} 
-        percentageChange={percentageChange} 
+    <View className="flex-1">
+      <LinearGradient
+        colors={['#0A3B29', '#0A2A1E', '#0A1A24']}
+        locations={[0, 0.3, 0.6, 0.9]}
+        className="absolute top-0 left-0 right-0 bottom-0"
       />
       
-      <ActionButtons />
-      
-      <ScrollView className="flex-1">
-        {cryptoAssets.map((asset, index) => (
-          <CryptoAsset
-            key={index}
-            name={asset.name}
-            symbol={asset.symbol}
-            amount={asset.amount}
-            value={asset.value}
-            change={asset.change}
-            // iconUrl={asset.iconUrl}
-          />
-        ))}
-      </ScrollView>
-      
-      <BottomTabBar activeTab={activeTab} onTabPress={setActiveTab} />
-    </SafeAreaView>
+      <SafeAreaView className="flex-1">
+        <StatusBar barStyle="light-content" />
+        
+        <AccountHeader accountName="Account 1" accountNumber={1} />
+        
+        <BalanceDisplay 
+          balance={totalBalance} 
+          profit={totalProfit} 
+          percentageChange={percentageChange} 
+        />
+        
+        <ActionButtons />
+        
+        <ScrollView className="flex-1 flex gap-8">
+          {cryptoAssets.map((asset, index) => (
+            <CryptoAsset
+              key={index}
+              name={asset.name}
+              symbol={asset.symbol}
+              amount={asset.amount}
+              value={asset.value}
+              change={asset.change}
+              // iconUrl={asset.iconUrl}
+            />
+          ))}
+        </ScrollView>
+        
+        <BottomTabBar activeTab={activeTab} onTabPress={setActiveTab} />
+      </SafeAreaView>
+    </View>
   );
 };
 

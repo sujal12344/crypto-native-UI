@@ -13,11 +13,11 @@ const BottomTabBar: React.FC<BottomTabBarProps> = ({ activeTab, onTabPress }) =>
     { name: 'grid', icon: 'grid' },
     { name: 'sync', icon: 'sync' },
     { name: 'time', icon: 'time' },
-    { name: 'help-circle', icon: 'help-circle' },
+    { name: 'information-circle', icon: 'information-circle' },
   ];
 
   return (
-    <View className="flex-row justify-around items-center py-4 bg-black border-t border-gray-800">
+    <View className="flex-row justify-around items-center p-3 px-5 pt-1 border-gray-800">
       {tabs.map((tab) => (
         <TouchableOpacity
           key={tab.name}
@@ -26,7 +26,7 @@ const BottomTabBar: React.FC<BottomTabBarProps> = ({ activeTab, onTabPress }) =>
         >
           <Ionicons
             name={tab.icon as any}
-            size={22}
+            size={20}
             color={activeTab === tab.name ? '#ffffff' : '#8E8E93'}
           />
         </TouchableOpacity>

@@ -9,7 +9,7 @@ type AccountHeaderProps = {
 
 const AccountHeader: React.FC<AccountHeaderProps> = ({ accountName, accountNumber }) => {
   return (
-    <View className="flex-row justify-between items-center px-4 pt-12 pb-2">
+    <View className="flex-row justify-between items-center px-4 pb-2 pt-4">
       <View className="flex-row items-center">
         <View className="w-8 h-8 rounded-full bg-purple-400 items-center justify-center mr-2">
           <Text className="text-purple-900 font-bold text-xs">A{accountNumber}</Text>

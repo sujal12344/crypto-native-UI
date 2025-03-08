@@ -15,7 +15,7 @@ const ActionButtons: React.FC = () => {
       {actions.map((action, index) => (
         <TouchableOpacity 
           key={index} 
-          className="items-center justify-center w-16 h-16 bg-gray-800 rounded-2xl"
+          className="items-center justify-center w-20 h-[70px] bg-gray-500/10 rounded-2xl"
         >
           {action.iconType === 'Ionicons' ? (
             <Ionicons name={action.icon as any} size={22} color="#8E8E93" />
