@@ -68,7 +68,7 @@ const WalletScreen: React.FC = () => {
   const percentageChange = 224.83;
 
   return (
-    <View className="flex-1">
+    <View className="flex-1 pt-8">
       <LinearGradient
         colors={['#0A3B22', '#0A2A1E', '#0A1A24']}
         locations={[0, 0.12, 1]}
