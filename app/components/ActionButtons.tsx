@@ -17,11 +17,11 @@ const ActionButtons: React.FC = () => {
   // ];
 
   return (
-    <View className="flex-row justify-between px-4 py-3 mb-2">
+    <View className="flex-row justify-between px-4 py-3 mb-2 gap-x-2">
       {actions.map((action, index) => (
         <TouchableOpacity 
           key={index} 
-          className="items-center justify-center w-[88px] h-[70px] bg-slate-50/5 rounded-xl p-2"
+          className="items-center justify-center w-20 h-[70px] bg-slate-50/5 rounded-xl p-2"
         >
             <action.icon size={action.icon === Send ? 20 : 22} color="#758ace" />
             <Text className="text-gray-400 text-sm mt-1">{action.label}</Text>
