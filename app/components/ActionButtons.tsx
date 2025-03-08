@@ -21,9 +21,9 @@ const ActionButtons: React.FC = () => {
       {actions.map((action, index) => (
         <TouchableOpacity 
           key={index} 
-          className="items-center justify-center w-20 h-[70px] bg-slate-50/5 rounded-xl p-2"
+          className="items-center justify-center w-24 h-[72px] bg-slate-50/5 rounded-2xl p-2"
         >
-            <action.icon size={action.icon === Send ? 20 : 22} color="#758ace" />
+            <action.icon size={action.icon === Send ? 22 : 24} color="#758ace" />
             <Text className="text-gray-400 text-sm mt-1">{action.label}</Text>
         </TouchableOpacity>
       ))}
