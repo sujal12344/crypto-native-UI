@@ -70,9 +70,9 @@ const WalletScreen: React.FC = () => {
   return (
     <View className="flex-1">
       <LinearGradient
-        colors={['#0A3B29', '#0A2A1E', '#0A1A24']}
-        locations={[0, 0.3, 0.6, 0.9]}
-        className="absolute top-0 left-0 right-0 bottom-0"
+        colors={['#0A3B22', '#0A2A1E', '#0A1A24']}
+        locations={[0, 0.12, 1]}
+        style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
       />
       
       <SafeAreaView className="flex-1">
@@ -88,7 +88,7 @@ const WalletScreen: React.FC = () => {
         
         <ActionButtons />
         
-        <ScrollView className="flex-1 flex gap-8">
+        <ScrollView className="flex-1">
           {cryptoAssets.map((asset, index) => (
             <CryptoAsset
               key={index}
