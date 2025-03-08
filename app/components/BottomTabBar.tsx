@@ -1,33 +1,49 @@
-import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import React from "react";
+import { View, TouchableOpacity } from "react-native";
+import {
+  House,
+  LayoutGrid,
+  ArrowRightLeft,
+  Clock,
+  Compass,
+} from "lucide-react-native";
 
 type BottomTabBarProps = {
   activeTab: string;
   onTabPress: (tabName: string) => void;
 };
 
-const BottomTabBar: React.FC<BottomTabBarProps> = ({ activeTab, onTabPress }) => {
+const BottomTabBar: React.FC<BottomTabBarProps> = ({
+  activeTab,
+  onTabPress,
+}) => {
   const tabs = [
-    { name: 'home', icon: 'home' },
-    { name: 'grid', icon: 'grid' },
-    { name: 'sync', icon: 'sync' },
-    { name: 'time', icon: 'time' },
-    { name: 'information-circle', icon: 'information-circle' },
+    { name: "home", icon: House },
+    { name: "grid", icon: LayoutGrid },
+    { name: "sync", icon: ArrowRightLeft },
+    { name: "time", icon: Clock },
+    { name: "Compass ", icon: Compass },
   ];
+  // const tabs = [
+  //   { name: 'home', icon: 'home' },
+  //   { name: 'grid', icon: 'grid' },
+  //   { name: 'sync', icon: 'sync' },
+  //   { name: 'time', icon: 'time' },
+  //   { name: 'information-circle', icon: 'information-circle' },
+  // ];
 
   return (
-    <View className="flex-row justify-around items-center p-3 px-5 pt-1 border-gray-800">
+    <View className="flex-row justify-around items-center p-3 px-5 pb-2 pt-1">
       {tabs.map((tab) => (
         <TouchableOpacity
           key={tab.name}
           onPress={() => onTabPress(tab.name)}
           className="items-center justify-center p-2"
         >
-          <Ionicons
-            name={tab.icon as any}
-            size={20}
-            color={activeTab === tab.name ? '#ffffff' : '#8E8E93'}
+          <tab.icon
+            size={24}
+            color={activeTab === tab.name ? "#c29ceb" : "#8E8E93"}
+            // fill={activeTab === tab.name ? "#c29ceb" : "none"}
           />
         </TouchableOpacity>
       ))}
@@ -35,4 +51,4 @@ const BottomTabBar: React.FC<BottomTabBarProps> = ({ activeTab, onTabPress }) =>
   );
 };
 
-export default BottomTabBar; 
+export default BottomTabBar;

@@ -36,11 +36,11 @@ const BalanceDisplay: React.FC<BalanceDisplayProps> = ({
     `${percentageChange.toFixed(2)}%`;
 
   return (
-    <View className="items-center py-4 gap-y-1">
+    <View className="items-center py-4 gap-y-1 font-['SF Pro Display', 'Inter', 'Roboto', 'sans-serif']">
       <Text className="text-white text-5xl font-bold">{formattedBalance}</Text>
-      <Text className="text-green-500 font-medium text-sm mt-1">
+      <Text className="text-green-500 font-medium text-sm mt-1 space-x-2">
         <Text className='font-semibold text-lg'>{formattedProfit} </Text>
-        <Text className='font-semibold bg-green-900/35 px-[3px] py-[1px] rounded-[5px] text-lg'>{formattedPercentage}</Text>
+        <Text className='font-semibold bg-green-900/35 px-[3px] py-[1.5px] rounded-[5px] text-lg'>{formattedPercentage}</Text>
       </Text>
     </View>
   );

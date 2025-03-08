@@ -67,7 +67,7 @@ const CryptoAsset: React.FC<CryptoAssetProps> = ({
   };
   
   return (
-    <View className='bg-gray-100/5 rounded-xl mx-4 my-0.5'>
+    <View className='bg-slate-50/5 rounded-xl mx-4 my-1'>
       <TouchableOpacity className="flex-row items-center justify-between px-4 py-3 border-gray-800">
         <View className="flex-row items-center">
           {/* <Image 
