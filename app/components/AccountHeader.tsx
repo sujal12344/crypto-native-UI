@@ -12,7 +12,11 @@ const AccountHeader: React.FC<AccountHeaderProps> = ({ accountName, accountNumbe
     <View className="flex-row justify-between items-center px-4 pb-2 pt-8">
       <View className="flex-row items-center font-semibold">
         <View className="w-8 h-8 rounded-full bg-[#c29ceb] items-center justify-center mr-2">
-          <TouchableOpacity className="text-purple-900 font-bold text-xs">A{accountNumber}</TouchableOpacity>
+          <TouchableOpacity className="text-purple-900 font-bold text-xs">
+            <Text>
+              A{accountNumber}
+            </Text>
+          </TouchableOpacity>
         </View>
         <Text className="text-white font-medium text-base">{accountName}</Text>
         <ChevronDown size={16} color="white" style={{ marginLeft: 2,
