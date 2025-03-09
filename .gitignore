@@ -3,8 +3,11 @@
 # dependencies
 node_modules/
 
+# Android
+android/
+
 # Expo
-# .expo/
+.expo/
 dist/
 web-build/
 # expo-env.d.ts
